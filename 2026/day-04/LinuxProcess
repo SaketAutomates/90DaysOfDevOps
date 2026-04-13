@@ -1,0 +1,14 @@
+🔹 Day 04 – Linux Practice: Processes & Services 🔹
+
+Today’s practice was all about strengthening Linux fundamentals with a focus on Docker. I worked through process checks, service inspection, and log troubleshooting — the kind of basics that make a DevOps engineer faster and more confident when things go wrong.
+
+✅ Ran process commands like ps aux | grep docker and pgrep -a dockerd to confirm Docker processes
+✅ Inspected the Docker service with systemctl status docker and systemctl list-units --type=service | grep docker  
+✅ Checked logs using journalctl -u docker and tail -n 50 /var/log/syslog  
+✅ Captured a mini troubleshooting flow to verify Docker was active and responding
+
+The service I inspected today was Docker. I learned how quickly you can verify if the daemon is running, check its logs, and spot issues — all with a few simple commands.
+
+💡 Why this matters: In DevOps, confidence with fundamentals like processes, services, and logs is critical. When production issues arise, you don’t want to waste time searching for basic commands.
+
+#90DaysOfDevOps #DevOpsKaJosh #TrainWithShubham #Linux #Docker #DevOps
