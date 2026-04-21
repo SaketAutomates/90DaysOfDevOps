@@ -1,0 +1,45 @@
+# Task 1: Create Users with home directories and passwords
+sudo useradd -m tokyo
+sudo passwd tokyo
+sudo useradd -m berlin
+sudo passwd berlin
+sudo useradd -m professor
+sudo passwd professor
+cat /etc/passwd | grep -E "tokyo|berlin|professor"
+ls /home/
+
+# Task 2: Create Groups
+sudo groupadd developers
+sudo groupadd admins
+cat /etc/group | grep -E "developers|admins"
+
+# Task 3: Assign Users to Groups
+sudo usermod -aG developers tokyo
+sudo usermod -aG developers,admins berlin
+sudo usermod -aG admins professor
+id tokyo
+id berlin
+id professor
+
+# Task 4: Shared Directory Setup
+sudo mkdir /opt/dev-project
+sudo chgrp developers /opt/dev-project
+sudo chmod 775 /opt/dev-project
+sudo -u tokyo touch /opt/dev-project/tokyo.txt
+sudo -u berlin touch /opt/dev-project/berlin.txt
+ls -ld /opt/dev-project
+ls -l /opt/dev-project
+
+# Task 5: Team Workspace
+sudo useradd -m nairobi
+sudo passwd nairobi
+sudo groupadd project-team
+sudo usermod -aG project-team nairobi
+sudo usermod -aG project-team tokyo
+sudo mkdir /opt/team-workspace
+sudo chgrp project-team /opt/team-workspace
+sudo chmod 775 /opt/team-workspace
+sudo -u nairobi touch /opt/team-workspace/nairobi.txt
+ls -ld /opt/team-workspace
+ls -l /opt/team-workspace
+
