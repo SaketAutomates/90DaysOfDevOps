@@ -1,0 +1,55 @@
+If you're looking for a clean, plain-text version to copy and paste directly into **Notepad**, **TextEdit**, or a simple `.txt` file, use this format. It strips away the fancy Markdown styling but keeps the structure clear.
+
+```text
+=====================================================
+DAY 10: FILE PERMISSIONS & OPERATIONS - NOTES
+=====================================================
+
+1. FILE CREATION METHODS
+------------------------
+- touch devops.txt          -> Creates an empty file.
+- echo "text" > notes.txt   -> Creates file and adds one line of text.
+- cat > notes.txt           -> Allows typing multiple lines (Ctrl+D to save).
+- vim script.sh             -> Opens the text editor for scripting.
+
+2. VIEWING FILES
+----------------
+- cat [file]      -> Shows full content.
+- head -n 5 [file] -> Shows first 5 lines.
+- tail -n 5 [file] -> Shows last 5 lines.
+- less [file]      -> View file without loading it all at once.
+
+3. PERMISSION VALUES (THE MATH)
+-------------------------------
+Read (r)    = 4
+Write (w)   = 2
+Execute (x) = 1
+
+Common Combinations:
+7 = rwx (Full Access)
+6 = rw- (Read/Write)
+5 = r-x (Read/Execute)
+4 = r-- (Read Only)
+0 = --- (No Access)
+
+4. CHMOD EXAMPLES
+-----------------
+- chmod 755 [file] -> Owner: Full, Group/Others: Read/Execute.
+- chmod 644 [file] -> Owner: Read/Write, Group/Others: Read only.
+- chmod +x [file]  -> Quickly make a script executable.
+- chmod -w [file]  -> Make a file read-only for everyone.
+
+5. TROUBLESHOOTING ERRORS
+-------------------------
+- "Permission denied" on script: Run 'chmod +x script.sh'
+- "Permission denied" on write: The file is missing the 'w' bit.
+- Directory access: You need 'x' (execute) permission on a 
+  folder just to enter it with 'cd'.
+
+=====================================================
+TASKS COMPLETED:
+[x] Created devops.txt, notes.txt, script.sh
+[x] Practiced head/tail on /etc/passwd
+[x] Modified permissions using octal and symbolic modes
+[x] Verified errors when permissions are missing
+=====================================================
