@@ -1,0 +1,52 @@
+# Day 11 – File Ownership Challenge (chown & chgrp)
+
+## Files & Directories Created
+- `devops-file.txt`
+- `team-notes.txt`
+- `project-config.yaml`
+- `app-logs/`
+- `heist-project/vault/gold.txt`
+- `heist-project/plans/strategy.conf`
+- `bank-heist/access-codes.txt`
+- `bank-heist/blueprints.pdf`
+- `bank-heist/escape-plan.txt`
+
+## Ownership Changes
+- `devops-file.txt`: default → `tokyo` → `berlin`
+- `team-notes.txt`: default → group `heist-team`
+- `project-config.yaml`: owner `professor`, group `heist-team`
+- `app-logs/`: owner `berlin`, group `heist-team`
+- `heist-project/`: recursively changed to owner `professor`, group `planners`
+- `bank-heist/access-codes.txt`: owner `tokyo`, group `vault-team`
+- `bank-heist/blueprints.pdf`: owner `berlin`, group `tech-team`
+- `bank-heist/escape-plan.txt`: owner `nairobi`, group `vault-team`
+
+## Commands Used
+```bash
+# View ownership
+ls -l filename
+
+# Change owner only
+sudo chown newowner filename
+
+# Change group only
+sudo chgrp newgroup filename
+
+# Change both owner and group
+sudo chown owner:group filename
+
+# Recursive change (directories)
+sudo chown -R owner:group directory/
+
+# Create users
+sudo useradd tokyo
+sudo useradd berlin
+sudo useradd nairobi
+sudo useradd professor
+
+# Create groups
+sudo groupadd heist-team
+sudo groupadd planners
+sudo groupadd vault-team
+sudo groupadd tech-team
+
