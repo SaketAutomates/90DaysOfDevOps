@@ -1,0 +1,29 @@
+🔑 Key Concepts
+Physical Volume (PV): Actual disk or partition initialized for LVM.
+
+Volume Group (VG): Pool of storage created by combining PVs.
+
+Logical Volume (LV): Usable storage carved out from a VG, mounted like a normal partition.
+
+⚙️ Step-by-Step Workflow
+Here’s a practical flow you can try on CentOS Stream 9:
+
+bash
+# 1. Install LVM tools
+sudo dnf install lvm2 -y
+
+# 2. Initialize a disk as Physical Volume
+sudo pvcreate /dev/sdb
+
+# 3. Create a Volume Group
+sudo vgcreate vg_data /dev/sdb
+
+# 4. Create a Logical Volume (5G size)
+sudo lvcreate -L 5G -n lv_storage vg_data
+
+# 5. Format the LV with ext4
+sudo mkfs.ext4 /dev/vg_data/lv_storage
+
+# 6. Mount it
+sudo mkdir /mnt/storage
+sudo mount /dev/vg_data/lv_storage /mnt/storage
