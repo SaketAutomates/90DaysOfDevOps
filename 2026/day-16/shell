@@ -1,0 +1,59 @@
+
+echo "Hello world"
+#!/bin/bash
+
+Name="Saket"
+Role="DevOps Engineer"
+
+echo "My name is $Name and i am $Role"
+#!/bin/bash
+
+read -p "Enter your name" name
+
+read -p "Enter your favourite DevOps tool" tool
+
+echo " Welcome $name your favourite tool is $tool"
+#!/bin/bash
+
+read -p "enter a filename" filename
+
+if [ -f $filename ]
+then
+  echo "file exists"
+else
+  echo "file not exists"
+fi
+#!/bin/bash
+
+read -p "enter a number: " num
+
+if [ $num -gt 0 ]
+then
+  echo " number is greater than 1"
+elif [ $num -eq 0 ]
+then
+  echo "number is zero"
+else
+  echo "number is negative"
+fi
+#!/bin/bash
+
+read -p "enter the service name: " service
+
+read -p "do you want to check status or not, press y for yes and n for no : " opt
+
+if [ "$opt" = "y" ]
+then
+  if systemctl is-active --quiet "$service"
+  then
+    echo "Service $service is active"
+  else
+    echo "Service $service is not active"
+  fi
+
+else
+  echo " Skipped"
+
+fi
+
+
