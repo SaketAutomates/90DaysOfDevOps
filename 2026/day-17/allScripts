@@ -1,0 +1,78 @@
+
+#!/bin/bash
+
+echo "total number of arguments are $#"
+
+echo " all the arguments are $@"
+
+echo " the script name is $0"
+#!/bin/bash
+
+read -p "Enter a number: " num
+
+for ((i=num; i>=0; i--))
+ do
+   echo "$i"
+ done
+echo "done"
+#!bin/bash
+
+for i in {1..10}
+ do
+  echo "$i"
+ done
+#!/bin/bash
+
+set -e
+
+mkdir -p /tmp/devops-test || { echo " unable to create the directory"; exit 1;}
+
+cd /tmp/devops-test || { echo " unable to enter the directory"; exit 1;}
+
+touch /tmp/devops-test/saket || { echo "unable to create file"; exit 1;}
+
+echo " all steps executed successfully"
+
+#!/bin/bash
+
+fruits=("Apple" "Banana" "custard apple" "Orange" "Mango")
+
+for fruit in "${fruits[@]}"
+do
+ echo "$fruit"
+done
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+   echo " usage bash greet.sh <name>"
+   exit 1
+fi
+
+name=$1
+echo "welcome $1"
+
+#!/bin/bash
+
+packages=("nginx" "curl" "wget")
+for pkg in "${packages[@]}"
+do
+    echo "Checking $pkg..."
+
+    if rpm -q "$pkg" &> /dev/null; then
+        echo "$pkg is already installed."
+    else
+        echo "$pkg is not installed. Installing..."
+
+        if command -v yum &> /dev/null; then
+            yum install -y "$pkg"
+        elif command -v dnf &> /dev/null; then
+            dnf install -y "$pkg"
+        else
+            echo "No supported package manager found. Please install $pkg manually."
+        fi
+    fi
+done
+
+echo "Package installation check complete."
+
+
