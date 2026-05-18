@@ -1,0 +1,51 @@
+Clone vs Fork in GitHub
+
+When working with GitHub, developers often use clone and fork. They sound similar but serve different purposes.
+
+Clone:
+
+Clone creates a local copy of a repository on your computer.
+
+Example command: git clone https://github.com/ORIGINAL_USER/REPO.git (github.com in Bing)
+
+Use clone when you want to download a project and work with it locally. Cloning does not create a new repository on GitHub.
+
+Fork:
+
+Fork creates a copy of someone else’s repository under your own GitHub account.
+
+After forking, you can clone your fork with: git clone https://github.com/YOUR_USERNAME/REPO.git (github.com in Bing)
+
+Use fork when you want to contribute to a project but don’t have direct push access. Forking gives you your own remote copy where you can make changes.
+
+Difference:
+
+Clone = local copy only.
+
+Fork = GitHub copy under your account.
+
+Shortcut: Fork is a GitHub-level copy, Clone is a local-level copy.
+
+When to Clone vs Fork:
+
+Clone if you own the repo or have write access.
+
+Fork if you don’t own the repo but want to contribute.
+
+Keeping Your Fork in Sync:
+
+Add the original repo as upstream: git remote add upstream https://github.com/ORIGINAL_USER/REPO.git (github.com in Bing)
+
+Fetch updates: git fetch upstream
+
+Merge into your local branch: git checkout main followed by git merge upstream/main
+
+Push to your fork: git push origin main
+
+Takeaway:
+
+Clone = local copy.
+
+Fork = GitHub copy under your account.
+
+To contribute: fork, clone your fork, sync with upstream, push changes, open a Pull Request.
