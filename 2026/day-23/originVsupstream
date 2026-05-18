@@ -1,0 +1,21 @@
+## 🔗 Origin vs Upstream (Visual Flow)
+
+Local Repo (your machine)
+        |
+        | push/pull
+        v
+   origin (your fork on GitHub)
+        |
+        | fetch/merge
+        v
+   upstream (original project repo)
+
+### Explanation:
+- **origin** → your fork (default remote when you clone).  
+- **upstream** → the original repository you forked from.  
+- Workflow:  
+  1. You work locally.  
+  2. Push changes to **origin** (your fork).  
+  3. Periodically fetch updates from **upstream** (the source project).  
+  4. Merge upstream changes into your fork, then push back to origin.
+
