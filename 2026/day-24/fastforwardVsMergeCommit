@@ -1,0 +1,2 @@
+✅ Fast-forward merge happens when the branch pointer simply moves forward because there are no divergent commits.
+✅ Merge commit happens when both branches have diverged, and Git needs to create a new commit to combine them.
