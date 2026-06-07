@@ -1,0 +1,97 @@
+# Day 28 – Revision & Self-Assessment
+
+## Task 1: Self-Assessment Checklist
+
+### Linux
+- File system navigation, file ops → ✅ Confident
+- Process management (list/kill/bg/fg) → ✅ Confident
+- systemd service management → ⚠️ Need to revisit
+- Text editing (vi/nano) → ✅ Confident
+- CPU/memory/disk troubleshooting → ⚠️ Need to revisit
+- File system hierarchy explanation → ✅ Confident
+- User/group management → ✅ Confident
+- File permissions (chmod) → ✅ Confident
+- Ownership (chown/chgrp) → ✅ Confident
+- LVM volumes → ⚠️ Need to revisit
+- Network connectivity (ping, curl, ss, dig) → ✅ Confident
+- DNS/IP/subnets/ports → ✅ Confident
+
+### Shell Scripting
+- Variables, arguments, user input → ✅ Confident
+- Conditionals (if/elif/else, case) → ✅ Confident
+- Loops (for/while/until) → ✅ Confident
+- Functions with args/returns → ✅ Confident
+- Text processing (grep/awk/sed/sort/uniq) → ⚠️ Need to revisit
+- Error handling (set -euo pipefail, trap) → ✅ Confident
+- Scheduling with crontab → ✅ Confident
+
+### Git & GitHub
+- Init, stage, commit, history → ✅ Confident
+- Branching (create/switch) → ✅ Confident
+- Push/pull, clone vs fork → ✅ Confident
+- Merge (fast-forward vs commit) → ✅ Confident
+- Rebase vs merge → ⚠️ Need to revisit
+- Stash/pop → ✅ Confident
+- Cherry-pick → ✅ Confident
+- Squash vs regular merge → ✅ Confident
+- Reset vs revert → ⚠️ Need to revisit
+- GitFlow/GitHub Flow/Trunk-Based → ✅ Confident
+- GitHub CLI (repos, PRs, issues) → ✅ Confident
+
+---
+
+## Task 2: Weak Spots to Revisit
+1. systemd service management  
+2. LVM volumes  
+3. Git reset vs revert  
+
+---
+
+## Task 3: Quick-Fire Questions
+
+1. `chmod 755 script.sh` → Owner full access; group/others read+execute.  
+2. Process vs Service → Process = running program; Service = managed background process.  
+3. Find process on port 8080 → `ss -tulpn | grep 8080` or `lsof -i:8080`.  
+4. `set -euo pipefail` → Exit on error, undefined variable, or failed pipeline.  
+5. `git reset --hard` vs `git revert` → Reset discards history; Revert adds commit undoing changes safely.  
+6. Branching strategy for 5 devs shipping weekly → GitHub Flow.  
+7. `git stash` → Temporarily saves uncommitted changes for later use.  
+8. Schedule script daily at 3 AM → `0 3 * * * /path/to/script.sh`.  
+9. `git fetch` vs `git pull` → Fetch downloads; Pull = fetch + merge.  
+10. LVM → Logical Volume Manager; flexible resizing vs fixed partitions.
+
+---
+
+## Task 4: Organize Work
+- ✅ All submissions (day-1 → day-27) pushed.  
+- ✅ `git-commands.md` updated.  
+- ✅ Shell scripting cheat sheet complete.  
+- ✅ GitHub profile/repos cleaned.  
+
+---
+
+## Task 5: Teach It Back
+
+**Explaining File Permissions to a New Linux User**  
+Linux files have permissions that decide who can read, write, or execute them. There are three categories: owner, group, and others. Permissions are shown as `r` (read), `w` (write), and `x` (execute). For example, `chmod 755 file.sh` means the owner can do everything, while group and others can only read and run it. This keeps files secure and ensures proper access control.
+
+---
+
+## LVM Workflow (One Logic)
+
+```bash
+# Create PV, VG, LV, format, mount, extend, verify
+
+pvcreate /dev/sdb
+vgcreate devops-vg /dev/sdb
+lvcreate -L 500M -n app-data devops-vg
+mkfs.ext4 /dev/devops-vg/app-data
+mkdir -p /mnt/app-data
+mount /dev/devops-vg/app-data /mnt/app-data
+lsblk
+df -h /mnt/app-data
+
+# Extend LV
+lvextend -L +200M /dev/devops-vg/app-data
+resize2fs /dev/devops-vg/app-data
+df -h /mnt/app-data
