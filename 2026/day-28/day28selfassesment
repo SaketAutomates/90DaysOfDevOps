@@ -1,0 +1,65 @@
+# Day 28 – Revision Day
+
+## ✅ Self-Assessment Checklist
+### Linux
+- Navigate filesystem, create/move/delete files → Confident
+- Manage processes → Confident
+- Work with systemd → Confident
+- Edit text files → Confident
+- Troubleshoot CPU/memory/disk → Confident
+- File system hierarchy → Confident
+- User/group management → Confident
+- File permissions (chmod) → Confident
+- Ownership (chown/chgrp) → Confident
+- LVM volumes → ❌ Not confident
+- Network connectivity tools → Confident
+- DNS, IP, subnets, ports → Confident
+
+### Shell Scripting
+- Variables, arguments, user input → Confident
+- Conditionals (if/elif/else, case) → Confident
+- Loops (for/while/until) → 🔄 Somewhat confident
+- Functions with args/return → ❌ Not confident
+- Text processing (grep/awk/sed/sort/uniq) → 🔄 Somewhat confident
+- Error handling (set -euo pipefail, trap) → 🔄 Somewhat confident
+- Scheduling with crontab → 🔄 Somewhat confident
+
+### Git & GitHub
+- Repo init, stage, commit, history → Confident
+- Branching → Confident
+- Push/pull → Confident
+- Clone vs fork → Confident
+- Merge (fast-forward vs commit) → Confident
+- Rebase vs merge → 🔄 Somewhat confident
+- Stash/pop → Confident
+- Cherry-pick → Confident
+- Squash vs regular merge → Confident
+- Reset/revert → Confident
+- GitFlow/GitHub Flow/Trunk-Based Dev → ❌ Not confident
+- GitHub CLI (repos, PRs, issues) → ❌ Not confident
+
+---
+
+## 🔄 Weak Spots to Revisit
+1. **LVM volumes** → redo Day 13 hands-on tasks.  
+2. **Shell scripting functions** → redo Day 18 tasks.  
+3. **Branching strategies (GitFlow, GitHub Flow, Trunk-Based)** → revisit Day 22–25 notes.
+
+---
+
+## ⚡ Quick-Fire Questions
+1. `chmod 755 script.sh` → Owner: rwx, Group: r-x, Others: r-x.  
+2. Process vs Service → Process = running program; Service = managed background process (often via systemd).  
+3. Find process on port 8080 → `sudo lsof -i :8080` or `netstat -tulpn | grep 8080`.  
+4. `set -euo pipefail` → Exit on error, undefined vars, pipeline failures.  
+5. `git reset --hard` vs `git revert` → Reset discards history; Revert creates new commit undoing changes.  
+6. Branching strategy for 5 devs shipping weekly → **GitHub Flow** (short-lived feature branches, frequent merges).  
+7. `git stash` → Temporarily saves uncommitted changes; use when switching branches.  
+8. Schedule script daily at 3 AM → `crontab -e` → `0 3 * * * /path/to/script.sh`.  
+9. `git fetch` vs `git pull` → Fetch = download only; Pull = fetch + merge.  
+10. LVM → Logical Volume Manager; flexible resizing vs fixed partitions.
+
+---
+
+
+
